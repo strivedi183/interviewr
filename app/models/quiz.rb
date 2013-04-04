@@ -26,12 +26,16 @@ class Quiz < ActiveRecord::Base
     end
   end
 
+  def passing_score
+    ((self.num_pass.to_f / self.questions.count.to_f) * 100)
+  end
+
   def num_passes
-    self.results.where(:is_passed => true).count
+    self.results.map(&:is_passed?).select{|i| i == true}.count
   end
 
   def num_fails
-    self.results.where(:is_passed => false).count
+    self.results.map(&:is_passed?).select{|i| i == false}.count
   end
 
   # def purchase(buyer)

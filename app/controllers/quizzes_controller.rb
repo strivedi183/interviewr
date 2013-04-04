@@ -14,4 +14,8 @@ class QuizzesController < ApplicationController
 
   def create
   end
+
+  def analytics
+    @quiz = Quiz.find(params[:id])
+  end
 end
