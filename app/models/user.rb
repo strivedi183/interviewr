@@ -21,6 +21,18 @@
 
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :address, :phone, :image, :occupation, :lat, :long, :balance, :customer_id, :is_house
+  has_secure_password
   has_many :results, :inverse_of => :user
   has_many :quizzes, :inverse_of => :user
+  validates :email, :presence => true, :uniqueness => true
+
+  private
+  def geocode
+    result = Geocoder.search(self.address).first
+
+    if result.present?
+      self.latitude = result.latitude
+      self.longitude = result.longitude
+    end
+  end
 end
