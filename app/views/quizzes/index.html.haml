@@ -1,0 +1,16 @@
+%table
+  %tr
+    %th Name
+    %th Fee
+    %th Passing Grade
+    %th Number of Passes
+    %th Number of Fails
+    %th Creator
+  - @quizzes.each do |quiz|
+    %tr
+      %td= quiz.name
+      %td= quiz.cost
+      %td= number_to_percentage(quiz.num_pass / quiz.questions.count)
+      %td= quiz.num_passes
+      %td= quiz.num_fails
+      %td= quiz.user.name
