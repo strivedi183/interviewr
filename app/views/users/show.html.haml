@@ -7,7 +7,10 @@
   .large-1.columns
   .large-3.columns
     =image_tag(@user.image)
-    #map
+    #map_canvas
+      %script
+        = "display_map(#{@user.lat}, #{@user.long}, 12)"
+        = "add_marker(#{@user.lat}, #{@user.long}, '#{@user.name}');"
     =link_to('Add Interview', :class => 'button small success radius')
 
   .large-7.columns
@@ -27,8 +30,8 @@
 
 // PREVIOUS QUIZZES TAKEN
 
-#quizes_history
-
+#quizzes_history
+  = render(:partial => 'users/quizzes_history')
 // D3 here
 
 .row

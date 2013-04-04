@@ -1,6 +1,13 @@
-%ol
-  - @questions.each do |question|
-    %li= question.prompt
-      %ul
-        - question.each do |answer|
-          %li= answer.name
+= form_tag '/results' do
+  %ol
+    - @questions.each do |question|
+      %li
+        = question.prompt
+        %ul
+          - question.answers.each do |answer|
+            %li
+              .inline-block
+                =check_box_tag question[answer.id], question.id
+              .inline-block=label_tag answer.name
+
+  =submit_tag nil, :class => 'button'
