@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true
 
   def quizzes_taken
-    self.results.map(&:quizzes)
+    self.results.map(&:quiz_id)
   end
 
   private

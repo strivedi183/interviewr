@@ -54,15 +54,34 @@ describe User do
   describe 'relationship between users, quizzes and results' do
     describe '#quizzes' do
       it 'is a list of quizzes the user has created' do
-        # expect user.quizzes to equal quizzes where user_id is equal to user's id
+        user = FactoryGirl.create(:user)
+        quiz1 = FactoryGirl.create(:quiz)
+        user.quizzes << quiz1
+        expect(user.quizzes.count).to eq 1
       end
     end
 
     describe '#results' do
       it 'is a list of quizzes the user has taken' do
+        user = FactoryGirl.create(:user)
+        q1 = FactoryGirl.create(:quiz)
+        r1 = FactoryGirl.create(:result)
+        user.results << r1
+        q1.results << r1
+        expect(r1.user_id).to eq user.id
+        expect(user.results.first.quiz_id).to eq q1.id
         # expect user.results to equal results where user_id is equal to user's id
       end
     end
+  end
+
+  describe '.quizzes_taken' do
+    user = FactoryGirl.create(:user)
+    q1 = FactoryGirl.create(:quiz)
+    r1 = FactoryGirl.create(:result)
+    user.results << r1
+    q1.results << r1
+    expect(user.quizzes_taken.first).to eq q1.id
   end
 
 
