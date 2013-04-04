@@ -40,8 +40,6 @@ describe User do
   end
 
   context 'the user must be present' do
-    let(:user) {User.create(email: 'bob@gmail.com')}
-
     describe '#geocoder' do
       it 'captures a lat and long' do
         user = FactoryGirl.create(:user)
@@ -73,16 +71,16 @@ describe User do
         # expect user.results to equal results where user_id is equal to user's id
       end
     end
+
+    describe '.quizzes_taken' do
+      it 'is a list of quizzes the user has taken' do
+        user = FactoryGirl.create(:user)
+        q1 = FactoryGirl.create(:quiz)
+        r1 = FactoryGirl.create(:result)
+        user.results << r1
+        q1.results << r1
+        expect(user.quizzes_taken.first).to eq q1
+      end
+    end
   end
-
-  describe '.quizzes_taken' do
-    user = FactoryGirl.create(:user)
-    q1 = FactoryGirl.create(:quiz)
-    r1 = FactoryGirl.create(:result)
-    user.results << r1
-    q1.results << r1
-    expect(user.quizzes_taken.first).to eq q1.id
-  end
-
-
 end
