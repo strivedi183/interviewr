@@ -1,6 +1,6 @@
 .row
   .large-6.large-centered.columns
-    %h2 Regiter to Interviwr
+    %h2 Register to Interviwr
 
 .row
   .large-6.large-centered.columns
@@ -14,5 +14,8 @@
       = f.text_field :balance, :placeholder => 'Opening balance $'
       = f.label :image, 'Upload photo'
       = f.file_field :image, :placeholder => 'Upload a photo'
+      %br
+      %br
+      %br
       = f.submit 'Register', :class => 'button small radius success'
       = link_to('Cancel', root_path, :class => 'button small radius alert' )
