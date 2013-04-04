@@ -7,7 +7,7 @@
 #  quiz_id     :integer
 #  num_correct :integer
 #  created_at  :datetime         not null
-#  updated_at  :datetime         not null\
+#  updated_at  :datetime         not null
 #
 
 class Result < ActiveRecord::Base
