@@ -7,7 +7,7 @@
           - question.answers.each do |answer|
             %li
               .inline-block
-                =check_box_tag question[answer.id], question.id
+                =check_box_tag answer.id, question.id
               .inline-block=label_tag answer.name
 
   =submit_tag nil, :class => 'button'
