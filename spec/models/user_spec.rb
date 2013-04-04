@@ -22,7 +22,11 @@
 require 'spec_helper'
 
 describe User do
-  describe 'blah' do
+  let(:user) {User.create(name: 'Bob', email: 'bob@gmail.com', password:'1234', password_confirmation: '1234')}
 
- end
+  describe '.create' do
+    it 'creates a user' do
+
+    end
+  end
 end
