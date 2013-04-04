@@ -1,0 +1,18 @@
+.row
+  .large-6.large-centered.columns
+    %h2 Regiter to Interviwr
+
+.row
+  .large-6.large-centered.columns
+    = form_for @user, :html => {:multipart => true} do |f|
+      = f.text_field :name, :placeholder => 'Full name'
+      = f.text_field :email, :placeholder => 'Email'
+      = f.password_field :password, :placeholder => 'Password'
+      = f.password_field :password_confirmation, :placeholder => 'Password confirmation'
+      = f.text_field :address, :placeholder => 'Home address'
+      = f.text_field :occupation, :placeholder => 'Current occupation'
+      = f.text_field :balance, :placeholder => 'Opening balance $'
+      = f.label :image, 'Upload photo'
+      = f.file_field :image, :placeholder => 'Upload a photo'
+      = f.submit 'Register', :class => 'button small radius success'
+      = link_to('Cancel', root_path, :class => 'button small radius alert' )
