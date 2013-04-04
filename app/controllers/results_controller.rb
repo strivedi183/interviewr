@@ -8,5 +8,6 @@ class ResultsController < ApplicationController
       q1 = Question.find(id)
       q1.is_correct?(value)
     end
+    redirect_to(@auth)
   end
 end
