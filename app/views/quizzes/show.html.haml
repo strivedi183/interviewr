@@ -1,0 +1,6 @@
+%ol
+  - @questions.each do |question|
+    %li= question.prompt
+      %ul
+        - question.each do |answer|
+          %li= answer.name
