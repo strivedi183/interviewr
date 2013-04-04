@@ -51,7 +51,19 @@ describe User do
     end
   end
 
-  describe 'relationship between users, quizzes and results'
+  describe 'relationship between users, quizzes and results' do
+    describe '#quizzes' do
+      it 'is a list of quizzes the user has created' do
+        # expect user.quizzes to equal quizzes where user_id is equal to user's id
+      end
+    end
+
+    describe '#results' do
+      it 'is a list of quizzes the user has taken' do
+        # expect user.results to equal results where user_id is equal to user's id
+      end
+    end
+  end
 
 
 end
