@@ -24,14 +24,13 @@ require 'spec_helper'
 describe User do
   describe '.create' do
     it 'an instance of a user' do
-      user = User.create(email: 'bob@gmail.com')
-      expect(user.id).to_not be nil
+      expect(User.new).to be_an_instance_of(User)
     end
 
     it 'create non-admin user' do
       u = User.create(name:'bob',email:'bob@gmail.com',password:'a',password_confirmation:'a')
       expect(u.name).to eq 'bob'
-      expect(u.is_admin).to eq false
+      expect(u.is_house?).to be false
     end
 
     it 'fails validation if email is not present' do
@@ -46,7 +45,7 @@ describe User do
     describe '#geocoder' do
       it 'captures a lat and long' do
         user = FactoryGirl.create(:user)
-        result = Geocoder.search(user.user.address).first
+        result = Geocoder.search(user.address).first
         expect(result.present?).to be true
       end
     end
