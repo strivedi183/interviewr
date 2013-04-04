@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true
   mount_uploader :image, ImageUploader
 
+  before_save :geocode
+
   def num_times_taken(quiz)
     self.results.where(:quiz_id => quiz.id).count
   end
@@ -40,8 +42,8 @@ class User < ActiveRecord::Base
     result = Geocoder.search(self.address).first
 
     if result.present?
-      self.latitude = result.latitude
-      self.longitude = result.longitude
+      self.lat = result.latitude
+      self.long = result.longitude
     end
   end
 end
