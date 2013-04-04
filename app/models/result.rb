@@ -22,4 +22,16 @@ class Result < ActiveRecord::Base
       false
     end
   end
+
+  def num_incorrect
+    self.quiz.questions.count - self.num_correct
+  end
+
+  def date
+    self.created_at.strftime("%m/%d/%Y")
+  end
+
+  def score
+    (self.num_correct / self.quiz.questions.count) * 100
+  end
 end
