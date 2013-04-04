@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :results, :inverse_of => :user
   has_many :quizzes, :inverse_of => :user
   validates :email, :presence => true, :uniqueness => true
+  mount_uploader :image, ImageUploader
 
   def quizzes_taken
     self.results.map(&:quiz_id).map{|i| Quiz.find(i)}
