@@ -11,6 +11,66 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130404151903) do
+
+  create_table "answers", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_correct"
+    t.integer  "question_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string   "prompt"
+    t.integer  "quiz_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "quizzes", :force => true do |t|
+    t.string  "name"
+    t.boolean "is_public"
+    t.decimal "cost",      :default => 0.0
+    t.string  "code"
+    t.integer "num_pass"
+    t.integer "user_id"
+  end
+
+  create_table "quizzes_tags", :id => false, :force => true do |t|
+    t.integer "quiz_id"
+    t.integer "tag_id"
+  end
+
+  create_table "results", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "quiz_id"
+    t.integer  "score"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "image"
+    t.string   "occupation"
+    t.float    "lat"
+    t.float    "long"
+    t.decimal  "balance"
+    t.boolean  "is_house"
+    t.string   "customer_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
 end
