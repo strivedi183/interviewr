@@ -11,7 +11,7 @@ class AddUsersTable < ActiveRecord::Migration
       t.float   :lat
       t.float   :long
       t.decimal :balance
-      t.bool    :is_house
+      t.boolean :is_house
       t.string  :customer_id
       t.timestamps
     end
