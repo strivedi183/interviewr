@@ -17,6 +17,5 @@ class QuizzesController < ApplicationController
 
   def analytics
     @quiz = Quiz.find(params[:id])
-    @users =
   end
 end

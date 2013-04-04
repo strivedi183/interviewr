@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
 
   def latest_quiz(quiz)
     self.results.where(:quiz_id => quiz.id).sort(:created_at).first.date
+  end
 
   def latest_score(quiz)
     self.results.where(:quiz_id => quiz.id).sort(:created_at).first.score

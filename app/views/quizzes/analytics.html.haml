@@ -1,3 +1,15 @@
 %table
   %tr
-    %th
+    %th User
+    %th Last Taken
+    %th Last Score
+    %th Average Score
+    %th Attempts
+  - @quiz.all_users.each do |user|
+    %tr
+      %td= user.name
+      %td= user.latest_quiz(@quiz)
+      %td= user.latest_score(@quiz)
+      %td= user.average_score(@quiz)
+      %td= user.num_times_taken(@quiz)
+
