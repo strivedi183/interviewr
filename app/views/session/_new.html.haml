@@ -1,4 +1,4 @@
-%ul.right
+%ul.right.login_form
   = form_tag '/login', :remote => true do
     %li= text_field_tag :email, nil, :placeholder => 'email'
     %li= password_field_tag :password, nil, :placeholder => 'password'

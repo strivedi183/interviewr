@@ -1,9 +1,9 @@
 class SessionController < ApplicationController
 
-def new
-end
+  def new
+  end
 
-def create
+  def create
     @auth = User.where(:email => params[:email]).first
     if @auth.present? && @auth.authenticate(params[:password])
       session[:user_id] = @auth.id
@@ -11,6 +11,12 @@ def create
       redirect_to root_path
     end
     authenticate
-end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    authenticate
+    redirect_to root_path
+  end
 
 end

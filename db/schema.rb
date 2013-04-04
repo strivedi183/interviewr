@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20130404151903) do
   create_table "results", :force => true do |t|
     t.integer  "user_id"
     t.integer  "quiz_id"
-    t.integer  "score"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "num_correct"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "tags", :force => true do |t|
