@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Test do
+describe Quiz do
 
 
 end
