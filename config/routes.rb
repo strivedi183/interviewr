@@ -7,4 +7,5 @@ Interviewr::Application.routes.draw do
 
   resources :users, :only => [:show, :new, :create]
   resources :quizzes
+  resources :results, :only => [:new, :create, :index]
 end
