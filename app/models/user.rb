@@ -34,11 +34,11 @@ class User < ActiveRecord::Base
   end
 
   def latest_quiz(quiz)
-    self.results.where(:quiz_id => quiz.id).sort(:created_at).first.date
+    self.results.where(:quiz_id => quiz.id).order(:created_at).last.date
   end
 
   def latest_score(quiz)
-    self.results.where(:quiz_id => quiz.id).sort(:created_at).first.score
+    self.results.where(:quiz_id => quiz.id).order(:created_at).last.score
   end
 
   def average_score(quiz)
