@@ -59,5 +59,16 @@ describe Quiz do
     end
   end
 
+  describe '#correct_answers' do
+    it 'is a list of quiz correct answers' do
+      quiz = FactoryGirl.create(:quiz)
+      q1 = FactoryGirl.create(:question)
+      correct = FactoryGirl.create(:answer_is_correct)
+      incorrect = FactoryGirl.create(:answer_is_not_correct)
+      q1.answers = [correct, incorrect]
+      quiz.questions << q1
+      expect(quiz.correct_answers).to eq [[correct]]
+    end
+  end
 
 end
