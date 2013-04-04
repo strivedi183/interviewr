@@ -1,6 +1,6 @@
 .row
   .large-12.columns
-    %h1 Create a Quiz:
+    %h2 Create a Quiz:
 .row
   .large-4.columns
     = form_for @quiz do |f|
@@ -10,9 +10,14 @@
       = f.number_field :cost
       = f.label :tags
       = text_field_tag :tags
-      = f.submit nil, :class => 'button tiny success'
+      = f.label :num_pass
+      = f.number_field :num_pass
+      = f.submit nil, :class => 'button small success'
   .large-8.columns
 
 .row
   .large-2.columns
-    = link_to('Add Question', '#', :class => "large button success" )
+    = link_to('Add Question', '#', :class => "small button success" )
+.row
+  .large-12.columns
+    = render(:partial => 'questions/new')
