@@ -38,6 +38,10 @@ class Quiz < ActiveRecord::Base
     self.results.map(&:is_passed?).select{|i| i == false}.count
   end
 
+  def all_users
+    self.results.map(&:user_id).map{|i| User.find(i)}
+  end
+
   # def purchase(buyer)
   #   buyer.balance -= self.cost
   #   admin = User.where(:)
