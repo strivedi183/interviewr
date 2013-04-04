@@ -17,4 +17,25 @@ class Quiz < ActiveRecord::Base
   has_many :questions, :inverse_of => :quiz
   belongs_to :user, :inverse_of => :quizzes
   has_and_belongs_to_many :tags
+
+  def is_free?
+    if self.cost == 0
+      true
+    else
+      false
+    end
+  end
+
+  def num_passes
+    self.results.where(:is_passed => true).count
+  end
+
+  def num_fails
+    self.results.where(:is_passed => false).count
+  end
+
+  # def purchase(buyer)
+  #   buyer.balance -= self.cost
+  #   admin = User.where(:)
+  # end
 end
