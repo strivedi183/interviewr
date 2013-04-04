@@ -10,8 +10,8 @@
 #  updated_at  :datetime         not null
 #
 
-class Result < ActiveRecord::Base
-  attr_accessible :user_id, :quiz_id, :num_correct
-  belongs_to :user, :inverse_of => :results
-  belongs_to :quiz, :inverse_of => :results
+FactoryGirl.define do
+  factory :result, class: Result do
+    num_correct                  7
+  end
 end
