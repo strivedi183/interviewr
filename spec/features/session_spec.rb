@@ -9,22 +9,6 @@ describe 'Session' do
     end
   end
 
-  # describe 'GET /login' do
-  #   it 'displays the login form' do
-  #     visit root_path
-  #     click_button('Login')
-  #     page.should have_button('Create User')
-  #     page.should have_button('Login')
-  #   end
-
-  #   it 'clears the login form when the hide button is clicked', :js => true do
-  #     visit root_path
-  #     click_link('Login')
-  #     click_link('Hide')
-  #     page.should have_link('Login')
-  #   end
-  # end
-
   describe 'POST /login' do
     it 'logs the user into the system if credentials are correct', :js => true do
       visit root_path
