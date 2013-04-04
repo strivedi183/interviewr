@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true
   mount_uploader :image, ImageUploader
 
+  def num_times_taken(quiz)
+    self.results.where(:quiz_id => quiz.id).count
+  end
+
   def quizzes_taken
     self.results.map(&:quiz_id).map{|i| Quiz.find(i)}
   end
