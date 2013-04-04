@@ -15,6 +15,14 @@ class Question < ActiveRecord::Base
   has_many :answers, :inverse_of => :question
 
   def correct_answers
-    self.answers.where(:is_correct => true)
+    self.answers.where(:is_correct => true).map(&:id).map{|i| i.to_s}
+  end
+
+  def is_correct?(answers)
+    if self.correct_answers == answers
+      true
+    else
+      false
+    end
   end
 end
