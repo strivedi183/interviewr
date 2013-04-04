@@ -11,6 +11,10 @@
 #
 
 FactoryGirl.define do
+  factory :answer, class: Answer do
+    name                  'Ruby on Rails'
+  end
+
   factory :answer_is_correct, class: Answer do
     name                  'answer_1'
     is_correct            true

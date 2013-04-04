@@ -14,3 +14,4 @@ FactoryGirl.define do
     prompt                  'this is question 1'
   end
 end
+
