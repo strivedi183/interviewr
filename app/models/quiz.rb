@@ -17,5 +17,4 @@ class Quiz < ActiveRecord::Base
   has_many :questions, :inverse_of => :quiz
   belongs_to :user, :inverse_of => :quizzes
   has_and_belongs_to_many :tags
-
 end

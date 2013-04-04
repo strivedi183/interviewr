@@ -58,6 +58,4 @@ describe Quiz do
       expect(quiz.questions.first).to eq q1
     end
   end
-
-
 end
