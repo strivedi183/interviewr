@@ -8,3 +8,4 @@
 //= require 'd3.v3.js'
 //= require 'moment.js'
 //= require 'interviewr.js'
+//= require 'map.js'
