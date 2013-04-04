@@ -10,4 +10,5 @@
                 =check_box_tag "question[#{question.id}][]", answer.id
               .inline-block=label_tag answer.name
 
+  =hidden_field_tag :quiz_id, @questions.first.quiz.id
   =submit_tag nil, :class => 'button'
