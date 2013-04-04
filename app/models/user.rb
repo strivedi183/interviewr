@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
   has_many :quizzes, :inverse_of => :user
   validates :email, :presence => true, :uniqueness => true
 
+  def quizzes_taken
+    self.results.map(&:quizzes)
+  end
+
   private
   def geocode
     result = Geocoder.search(self.address).first

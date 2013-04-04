@@ -1,17 +1,15 @@
 # == Schema Information
 #
-# Table name: questions
+# Table name: tags
 #
 #  id         :integer          not null, primary key
-#  prompt     :string(255)
-#  quiz_id    :integer
+#  name       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 FactoryGirl.define do
-  factory :question, class: Question do
-    prompt                  'this is question 1'
+  factory :tag, class: Tag do
+    name                  'tag 1'
   end
 end
-
