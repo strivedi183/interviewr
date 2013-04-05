@@ -33,6 +33,18 @@ class User < ActiveRecord::Base
     self.results.where(:quiz_id => quiz.id).count
   end
 
+  def latest_quiz(quiz)
+    self.results.where(:quiz_id => quiz.id).order(:created_at).last.date
+  end
+
+  def latest_score(quiz)
+    self.results.where(:quiz_id => quiz.id).order(:created_at).last.score
+  end
+
+  def average_score(quiz)
+    (self.results.where(:quiz_id => quiz.id).map(&:score).reduce(:+)) / (self.results.where(:quiz_id => quiz.id).count)
+  end
+
   def quizzes_taken
     self.results.map(&:quiz_id).map{|i| Quiz.find(i)}
   end

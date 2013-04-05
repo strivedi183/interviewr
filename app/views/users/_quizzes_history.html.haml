@@ -1,0 +1,17 @@
+%h3 Quizzes taken
+%table
+  %thead
+    %tr
+      %th Quiz name
+      %th Date taken
+      %th Score
+      %th Number Correct
+      %th Number Wrong
+  %tbody
+  - @results.each do |result|
+    %tr
+      %td= link_to(result.quiz.name, result.quiz)
+      %td= result.date
+      %td= number_to_percentage(result.score, :precision => 0)
+      %td= result.num_correct
+      %td= result.num_incorrect
