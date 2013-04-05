@@ -5,8 +5,9 @@
 .row
   .large-6.large-centered.columns
     = form_for @user, :html => {:multipart => true} do |f|
-      = f.text_field :name, :placeholder => 'Full name'
+      = f.text_field :name, :placeholder => 'Full Name'
       = f.text_field :email, :placeholder => 'Email'
+      = f.text_field :phone, :placeholder => 'Phone Number'
       = f.password_field :password, :placeholder => 'Password'
       = f.password_field :password_confirmation, :placeholder => 'Password confirmation'
       = f.text_field :address, :placeholder => 'Home address'

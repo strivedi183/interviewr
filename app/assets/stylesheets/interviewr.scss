@@ -1,12 +1,23 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
-*
-{
+* {
   font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3, h4, h5
-{
+h1, h2, h3, h4, h5 {
  font-family: 'Lato', sans-serif;
+}
+
+
+
+.black_bg {
+  background-color: #333;
+}
+.spacer{
+  height: 10px;
+}
+
+textarea {
+  width: 305px;
 }
 
 #map_canvas

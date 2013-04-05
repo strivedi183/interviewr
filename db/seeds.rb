@@ -6,7 +6,7 @@ Tag.delete_all
 User.delete_all
 
 u1 = User.create(:name => 'Sergey Brin', :email => 's@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816' )
-u2 = User.create(:name => 'God', :email => 'god@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :is_house => true )
+u2 = User.create(:name => 'God', :email => 'god@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => '6127030272', :is_house => true )
 
 
 # This block is to set up a sample quiz
