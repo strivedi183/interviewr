@@ -21,8 +21,10 @@ class QuizzesController < ApplicationController
       t = Tag.new(name: tag) if t.nil?
       @quiz.tags << t
     end
-    redirect_to root_path
+    @question = Question.new
   end
+
+
 
   def analytics
     @quiz = Quiz.find(params[:id])

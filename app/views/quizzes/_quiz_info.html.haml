@@ -1,0 +1,6 @@
+%h2= @quiz.name
+%h2= @quiz.cost
+%h2= @quiz.id
+%h2= number_to_percentage(@quiz.num_pass, :precision => 2)
+- @quiz.tags.each do |tag|
+  %p= tag.name
