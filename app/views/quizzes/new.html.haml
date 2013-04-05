@@ -1,23 +1,35 @@
 .row
-  .large-12.columns
-    %h2 Create a Quiz:
+  .large-4.columns
+    .spacer.black_bg
+    %h3 CREATE A QUIZ:
+  .large-8.columns
 .row
   .large-4.columns
+
     = form_for @quiz do |f|
       = f.label :name
-      = f.text_field :name, :autofocus => true
+      = f.text_field :name, :autofocus => true, :placeholder=>'Quiz name'
       = f.label :cost
       = f.number_field :cost
-      = f.label :tags
+      = f.label 'Enter relevant tags:'
       = text_field_tag :tags
-      = f.label :num_pass
+      = f.label 'Score required to pass quiz:'
       = f.number_field :num_pass
-      = f.submit nil, :class => 'button small success'
+      = f.submit 'SAVE', :class => 'button small success'
+
+    .spacer.black_bg
+    %h3 ADD QUESTIONS
+    = link_to('NEW QUESTION', new_question_path, :remote => true, :class => "small button success" )
+
+    #question_form
+
   .large-8.columns
+
+
 
 .row
   .large-2.columns
-    = link_to('Add Question', '#', :class => "small button success" )
+
 .row
   .large-12.columns
-    = render(:partial => 'questions/new')
+
