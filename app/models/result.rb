@@ -37,9 +37,9 @@ class Result < ActiveRecord::Base
 
   def sendtxt
     if self.is_passed?
-      body = 'You passed! ' + self.score.to_f.to_s + '%'
+      body = 'Congrats, you passed: ' + self.quiz.name + '! ' + self.score.to_f.to_s + '%'
     else
-      body = 'You failed! ' + self.score.to_f.to_s + '%'
+      body = 'Sorry, you failed: ' + self.quiz.name + '... ' + self.score.to_f.to_s + '%'
     end
     client = Twilio::REST::Client.new(ENV['TW_SID'], ENV['TW_TOK'])
     client.account.sms.messages.create(:from => '+16123459441', :to => self.user.phone, :body => body)
