@@ -9,4 +9,5 @@
 //= require 'moment.js'
 //= require 'interviewr.js'
 //= require 'map.js'
-//= require gritter
+//= require 'spin.min.js'
+//= require 'gritter'
