@@ -9,3 +9,4 @@
 //= require 'moment.js'
 //= require 'interviewr.js'
 //= require 'map.js'
+//= require gritter
