@@ -42,6 +42,8 @@ class Quiz < ActiveRecord::Base
     self.results.map(&:user_id).map{|i| User.find(i)}
   end
 
+
+
   # def purchase(buyer)
   #   buyer.balance -= self.cost
   #   admin = User.where(:)

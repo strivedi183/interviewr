@@ -47,7 +47,8 @@ class QuizzesController < ApplicationController
     #   Notifications.purchased_product(@auth, product).deliver
     # end
 
+    result = Result.create(:user_id => @auth.id, :quiz_id => quiz.id)
+
     @quizzes = Quiz.all
-    redirect_to quiz_path(quiz)
   end
 end
