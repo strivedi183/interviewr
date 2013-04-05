@@ -12,3 +12,9 @@
 
   =hidden_field_tag :quiz_id, @questions.first.quiz.id
   =submit_tag nil, :class => 'button'
+
+
+/ = form_tag '/quizzes/sendtxt' do
+/   =text_field_tag :body, nil, :placeholder => 'Message'
+/   =submit_tag 'Text Test', :class => 'button'
+

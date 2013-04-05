@@ -14,9 +14,13 @@
     =link_to('Add Interview', :class => 'button small success radius')
 
   .large-7.columns
-    = @user.name
-    = @user.address
-    / etc etc
+    %ul
+      %li= @user.name
+      %li= @user.address
+      %li= @user.occupation
+      %li= @user.email
+      %li= @user.phone
+      %li= number_to_currency(@user.balance, :precision => 2)
   .large-1.columns
 
 
