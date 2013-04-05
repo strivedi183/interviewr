@@ -2,10 +2,7 @@ class ResultsController < ApplicationController
   def new
   end
   def create
-    result = Result.create
-    result.user = @auth
-    result.quiz = Quiz.find(params[:quiz_id])
-    result.num_correct = 0
+    result = Result.where(quiz_id: params[:quiz_id], user_id: @auth.id, num_correct: 0).last
     questions = params[:question]
     questions.each do |key, value|
       id = key
@@ -16,6 +13,7 @@ class ResultsController < ApplicationController
     end
     result.save
     result.sendtxt
+    result.sendemail
     redirect_to(@auth)
   end
 end

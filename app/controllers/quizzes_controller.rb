@@ -6,6 +6,10 @@ class QuizzesController < ApplicationController
   def show
     @quiz = Quiz.find(params[:id])
     @questions = @quiz.questions
+    result = Result.where(quiz_id: @quiz.id, user_id: @auth.id, num_correct: nil).first
+    result.num_correct = 0
+    result.has_started = true
+    result.save
   end
 
   def new
@@ -16,6 +20,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.create(params[:quiz])
     @quiz.tags = Tag.is_exists(params[:tags].split(','))
     @question = Question.new
+
   end
 
 

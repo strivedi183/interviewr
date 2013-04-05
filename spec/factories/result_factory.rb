@@ -8,6 +8,7 @@
 #  num_correct :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  has_started :boolean          default(FALSE)
 #
 
 FactoryGirl.define do
