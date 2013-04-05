@@ -17,5 +17,8 @@
       %td= quiz.num_fails
       %td= quiz.user.name
       %td
-        = render(:partial => 'quizzes/anonymous', :locals => {:quiz => quiz})
-      %td= link_to('Go!', quiz_path(quiz))
+        - if !quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).present?
+          = render(:partial => 'quizzes/anonymous', :locals => {:quiz => quiz})
+      %td
+        - if quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).present?
+          = link_to('Go!', quiz_path(quiz))

@@ -2,9 +2,8 @@ class ResultsController < ApplicationController
   def new
   end
   def create
-    result = Result.create
-    result.user = @auth
-    result.quiz = Quiz.find(params[:quiz_id])
+    result = Result.where(quiz_id: params[:quiz_id], user_id: @auth.id, num_correct: nil).first
+
     result.num_correct = 0
     questions = params[:question]
     questions.each do |key, value|

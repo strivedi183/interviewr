@@ -42,6 +42,9 @@ class Quiz < ActiveRecord::Base
     self.results.map(&:user_id).map{|i| User.find(i)}
   end
 
+  # def has_been_taken(user)
+
+  # end
 
 
   # def purchase(buyer)
