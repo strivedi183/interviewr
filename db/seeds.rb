@@ -10,7 +10,7 @@ u2 = User.create(:name => 'God', :email => ENV['EMAIL'], :password => 'a', :pass
 
 
 # This block is to set up a sample quiz
-q1 = Quiz.create(:name => 'Intro to Rails', :num_pass => 2)
+q1 = Quiz.create(:name => 'Intro to Rails', :num_pass => 2, :cost => 5)
 u2.quizzes << q1
 question1 = Question.create(:prompt => 'This is Question 1')
 a1 = Answer.create(:name => 'Choice 1', :is_correct => true)
@@ -34,7 +34,7 @@ q1.questions << question1 << question2 << question3
 # End Block
 
 # This block is to set up a sample quiz
-q2 = Quiz.create(:name => 'Rails Intermediate', :num_pass => 2)
+q2 = Quiz.create(:name => 'Rails Intermediate', :num_pass => 2, :cost => 10)
 u2.quizzes << q2
 question4 = Question.create(:prompt => 'This is Question 1')
 a13 = Answer.create(:name => 'Choice 1', :is_correct => true)
@@ -58,7 +58,7 @@ q2.questions << question4 << question5 << question6
 # End Block
 
 # This block is to set up a sample quiz
-q3 = Quiz.create(:name => 'Between the Sheets', :num_pass => 2)
+q3 = Quiz.create(:name => 'Between the Sheets', :num_pass => 2, :cost => 100)
 u2.quizzes << q3
 question4 = Question.create(:prompt => 'This is Question 1')
 a25 = Answer.create(:name => 'Choice 1', :is_correct => true)

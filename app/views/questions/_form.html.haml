@@ -1,0 +1,7 @@
+.row
+  .large-4.columns
+    = form_for @question, :remote => true do |f|
+      = f.label :prompt
+      = f.text_area :prompt, :autofocus => true, :placeholder=>'question here', :cols => "35"
+      = f.submit nil, :class => 'button tiny success'
+

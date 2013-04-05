@@ -1,18 +1,2 @@
-%table
-  %tr
-    %th Name
-    %th Fee
-    %th Passing Grade
-    %th Number of Passes
-    %th Number of Fails
-    %th Creator
-    %th Take Quiz
-  - @quizzes.each do |quiz|
-    %tr
-      %td= @auth == quiz.user ? link_to(quiz.name, analytics_quiz_path(quiz)) : quiz.name
-      %td= quiz.cost
-      %td= number_to_percentage((quiz.passing_score), :precision => 2)
-      %td= quiz.num_passes
-      %td= quiz.num_fails
-      %td= quiz.user.name
-      %td= link_to('Take Quiz', '#')
+#quizzes
+  = render(:partial => 'quizzes')

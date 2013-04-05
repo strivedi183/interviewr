@@ -10,6 +10,7 @@ Interviewr::Application.routes.draw do
   resources :quizzes, :only => [:show, :new, :create, :index] do
     member do
       get '/analytics' => 'quizzes#analytics'
+      post 'purchase'
     end
   end
   resources :questions, :only => [:new, :create]

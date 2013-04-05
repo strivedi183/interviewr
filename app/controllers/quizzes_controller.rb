@@ -13,9 +13,35 @@ class QuizzesController < ApplicationController
   end
 
   def create
+    @quiz = Quiz.create(params[:quiz])
+    @quiz.tags = Tag.is_exists(params[:tags].split(','))
   end
 
   def analytics
     @quiz = Quiz.find(params[:id])
+  end
+
+  def purchase
+    quiz = Quiz.find(params[:id])
+
+
+    begin
+      if @auth.customer_id.nil?
+        customer = Stripe::Customer.create(email: @auth.email, card: params[:token])
+        @auth.customer_id = customer.id
+        @auth.save
+      end
+      Stripe::Charge.create(customer: @auth.customer_id, amount: (quiz.cost * 100).to_i, description: quiz.name, currency: 'usd')
+    rescue Stripe::CardError => @error
+    end
+
+
+    # if @error.nil?
+    #   Notifications.purchased_product(@auth, product).deliver
+    # end
+
+    result = Result.create(:user_id => @auth.id, :quiz_id => quiz.id)
+
+    @quizzes = Quiz.all
   end
 end
