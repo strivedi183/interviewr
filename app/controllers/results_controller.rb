@@ -15,6 +15,7 @@ class ResultsController < ApplicationController
     end
     result.save
     result.sendtxt
+    result.sendemail
     redirect_to(@auth)
   end
 end

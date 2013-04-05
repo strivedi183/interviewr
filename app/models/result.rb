@@ -47,4 +47,16 @@ class Result < ActiveRecord::Base
     client = Twilio::REST::Client.new(ENV['TW_SID'], ENV['TW_TOK'])
     client.account.sms.messages.create(:from => '+16123459441', :to => self.user.phone, :body => body)
   end
+
+  def sendemail
+    if self.is_passed?
+      quiz = self.quiz.name
+      score = self.score.to_f.to_s
+      Notifications.passing_message(user, quiz, score).deliver
+    else
+      quiz = self.quiz.name
+      score = self.score.to_f.to_s
+      Notifications.failing_message(user, quiz, score).deliver
+    end
+  end
 end

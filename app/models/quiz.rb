@@ -51,4 +51,14 @@ class Quiz < ActiveRecord::Base
   #   buyer.balance -= self.cost
   #   admin = User.where(:)
   # end
+  def purchase(buyer)
+    buyer.balance -= self.cost
+    buyer.save
+    admin = User.where(:is_house => true).first
+    admin.balance += self.cost * 0.15
+    admin.balance.save
+    self.user += self.cost * 0.85
+    self.user.save
+  end
+
 end
