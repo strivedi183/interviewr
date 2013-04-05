@@ -10,16 +10,23 @@
 
 
     .spacer.black_bg
-    %h3 ADD QUESTIONS
-    = form_tag new_question_path, :method => 'get', :remote => true do
-      = hidden_field_tag :quiz_id, @quiz.id
-      = submit_tag 'NEW QUESTION', :class => "small button success"
-    / link_to('NEW QUESTION', questions_new_quiz_path, :remote => true, :class => "small button success" )
+    #q_header
+      %h3 ADD QUESTIONS
+    #question_form_btn.hide
+      = form_tag new_question_path, :method => 'get', :remote => true do
+        = hidden_field_tag :quiz_id, @quiz.id
+        = submit_tag 'NEW QUESTION', :class => "small button success"
+      / link_to('NEW QUESTION', questions_new_quiz_path, :remote => true, :class => "small button success" )
 
     #question_form
+    #answer_form
 
+    #finish_question
+      = link_to('Finish Question', '#', :'data-finish-question-form' => true, :class => 'button tiny success')
   .large-8.columns
     #question_info
+    #answer_info
+
 
 
 .row
