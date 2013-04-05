@@ -2,9 +2,7 @@ class ResultsController < ApplicationController
   def new
   end
   def create
-    result = Result.where(quiz_id: params[:quiz_id], user_id: @auth.id, num_correct: nil).first
-
-    result.num_correct = 0
+    result = Result.where(quiz_id: params[:quiz_id], user_id: @auth.id, num_correct: 0).last
     questions = params[:question]
     questions.each do |key, value|
       id = key

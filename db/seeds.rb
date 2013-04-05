@@ -83,10 +83,10 @@ q3.questions << question4 << question5 << question6
 
 
 #
-r1 = Result.create(:quiz_id => q1.id, :user_id => u2.id, :num_correct => 1)
-r2 = Result.create(:quiz_id => q1.id, :user_id => u2.id, :num_correct => 2)
-r3 = Result.create(:quiz_id => q1.id, :user_id => u2.id, :num_correct => 3)
-r4 = Result.create(:quiz_id => q3.id, :user_id => u2.id, :num_correct => 1)
-r5 = Result.create(:quiz_id => q2.id, :user_id => u2.id, :num_correct => 2)
-r6 = Result.create(:quiz_id => q3.id, :user_id => u2.id, :num_correct => 3)
+r1 = Result.create(:quiz_id => q1.id, :user_id => u2.id, :num_correct => 1, :has_started => true)
+r2 = Result.create(:quiz_id => q1.id, :user_id => u2.id, :num_correct => 2, :has_started => true)
+r3 = Result.create(:quiz_id => q1.id, :user_id => u2.id, :num_correct => 3, :has_started => true)
+r4 = Result.create(:quiz_id => q3.id, :user_id => u2.id, :num_correct => 1, :has_started => true)
+r5 = Result.create(:quiz_id => q2.id, :user_id => u2.id, :num_correct => 2, :has_started => true)
+r6 = Result.create(:quiz_id => q3.id, :user_id => u2.id, :num_correct => 3, :has_started => true)
 #
