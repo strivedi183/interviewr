@@ -6,6 +6,11 @@ Interviewr::Application.routes.draw do
   delete '/login' => 'session#destroy'
 
   resources :users, :only => [:show, :new, :create]
-  resources :quizzes, :only => [:show, :new, :create]
+  resources :results, :only => [:new, :create, :index]
+  resources :quizzes, :only => [:show, :new, :create, :index] do
+    member do
+      get '/analytics' => 'quizzes#analytics'
+    end
+  end
   resources :questions, :only => [:new, :create]
 end

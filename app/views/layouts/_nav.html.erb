@@ -19,9 +19,10 @@
         <li>
           <% if @auth.blank? %>
             <%= link_to('Register', new_user_path) %>
+          <% else %>
+            <%= link_to('Profile', user_path(@auth)) %>
           <% end %>
         </li>
-
       </ul>
 
       <!-- Right Nav Section -->

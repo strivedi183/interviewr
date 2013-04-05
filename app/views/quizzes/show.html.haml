@@ -1,6 +1,20 @@
-%ol
-  - @questions.each do |question|
-    %li= question.prompt
-      %ul
-        - question.each do |answer|
-          %li= answer.name
+= form_tag '/results' do
+  %ol
+    - @questions.each do |question|
+      %li
+        = question.prompt
+        %ul
+          - question.answers.each do |answer|
+            %li
+              .inline-block
+                =check_box_tag "question[#{question.id}][]", answer.id
+              .inline-block=label_tag answer.name
+
+  =hidden_field_tag :quiz_id, @questions.first.quiz.id
+  =submit_tag nil, :class => 'button'
+
+
+/ = form_tag '/quizzes/sendtxt' do
+/   =text_field_tag :body, nil, :placeholder => 'Message'
+/   =submit_tag 'Text Test', :class => 'button'
+

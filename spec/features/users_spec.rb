@@ -22,16 +22,17 @@ describe 'Users' do
     end
   end
   describe 'POST /users' do
-    it 'creates a new user', :js => true do
+    it 'creates a new user' do
       visit root_path
-      click_link('Login')
-      fill_in('Name', :with => 'bob')
-      fill_in('reg_email', :with => 'bob@gmail.com')
+      click_link('Register')
+      fill_in('user_name', :with => 'bob')
+      fill_in('user_email', :with => 'bob@gmail.com')
       fill_in('user_password', :with => 'a')
       fill_in('user_password_confirmation', :with => 'a')
-      click_button('Create User')
-      page.should have_link('Login')
-      page.should have_link('Hide')
+      click_button('Register')
+      page.should have_button('Log in')
+      page.should have_link('Register')
+      page.should_not have_button('Register')
       expect(User.first.name).to eq 'bob'
     end
   end
