@@ -6,7 +6,7 @@
 .row
   .large-1.columns
   .large-3.columns
-    =image_tag(@user.image)
+    = image_tag(@user.image)
     = link_to('Add Quiz', new_quiz_path,  :class => 'button small success radius')
     #map_canvas
       %script

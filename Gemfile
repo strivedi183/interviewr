@@ -13,6 +13,7 @@ gem 'remotipart'
 gem 'geocoder'
 gem 'aws-ses'
 gem 'stripe'
+gem 'gritter', '1.0.3'
 
 group :assets do
   gem 'sass-rails'
