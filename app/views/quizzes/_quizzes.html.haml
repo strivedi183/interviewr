@@ -18,6 +18,9 @@
       %td= quiz.user.name
       %td
         - if !quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).present?
+          - if @auth.customer_id.present?
+            = render(:partial => 'quizzes/customer', :locals => {:quiz => quiz})
+          - else
           = render(:partial => 'quizzes/anonymous', :locals => {:quiz => quiz})
       %td
         - if quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).present?
