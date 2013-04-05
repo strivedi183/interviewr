@@ -8,18 +8,21 @@
 #  num_correct :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  has_started :boolean          default(FALSE)
 #
 
 class Result < ActiveRecord::Base
-  attr_accessible :user_id, :quiz_id, :num_correct
+  attr_accessible :user_id, :quiz_id, :num_correct, :has_started
   belongs_to :user, :inverse_of => :results
   belongs_to :quiz, :inverse_of => :results
 
   def is_passed?
-    if self.num_correct >= self.quiz.num_pass
-      true
-    else
-      false
+    if self.num_correct.present?
+      if self.num_correct >= self.quiz.num_pass
+        true
+      else
+        false
+      end
     end
   end
 
