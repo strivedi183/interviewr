@@ -3,8 +3,8 @@
   = f.text_field :name, :autofocus => true, :placeholder=>'Quiz name'
   = f.label :cost
   = f.number_field :cost
-  = f.label 'Enter relevant tags:'
+  = f.label 'Enter comma separated tags:'
   = text_field_tag :tags
-  = f.label 'Score required to pass quiz:'
+  = f.label 'Percentage required to pass quiz:'
   = f.number_field :num_pass
-  = f.submit 'SAVE', :class => 'button small success'
+  = f.submit 'Add Questions', :class => 'button small success'
