@@ -1,6 +1,9 @@
 .row
   .large-12.columns
     %h1 USER PROFILE
+    = link_to('Edit profile', edit_user_path(@user))
+
+
 
 
 //USER PROFILE
@@ -14,7 +17,7 @@
       %script
         = "display_map(#{@user.lat}, #{@user.long}, 12)"
         = "add_marker(#{@user.lat}, #{@user.long}, '#{@user.name}');"
-    =link_to('Add Interview', :class => 'button small success radius')
+    = link_to('Add Interview', '#', :class => 'button small success radius')
 
   .large-7.columns
     %ul
