@@ -9,7 +9,7 @@
   %tbody
   - @results.each do |result|
     %tr
-      %td= link_to(result.quiz.name, result.quiz)
+      %td= link_to(result.quiz.name, quizzes_path)
       %td= result.date
       %td= number_to_percentage(result.score, :precision => 0)
       %td= result.num_correct
