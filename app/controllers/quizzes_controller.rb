@@ -18,7 +18,9 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.create(params[:quiz])
+    @quiz.user = @auth
     @quiz.tags = Tag.is_exists(params[:tags].split(','))
+    @quiz.save
     @question = Question.new
   end
 

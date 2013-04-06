@@ -75,6 +75,84 @@ $black:   #4b3b3b; //text color
 .upcase {
   text-transform: uppercase;
 }
+.quiz_bg{
+  background-color: $white;
+  box-shadow: 2px 2px 10px #666;
+  min-height: 600px;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.no_margin{
+  margin: 0px;
+}
+
+.tiny_text{
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+.answers{
+  margin-bottom: 4px;
+}
+/* 6. Foundation Overrides  *********************************/
+
+.button {
+  background-color: $lt_purp;
+  border-color: darken( $lt_purp, 30% );
+  color: $black;
+  font-weight: 700;
+}
+.button:hover {
+  background-color: darken($lt_purp, 10%);
+  border-color: $lt_purp;
+  color: $black;
+  font-weight: 700;
+}
+
+.button.success {
+  background-color: $blue;
+  border-color: darken( $blue, 30% );
+  color: #fff;
+  font-weight: 700;
+
+}
+.button.success:hover {
+  background-color: darken($blue, 10%);
+  border-color: $blue;
+  color: #fff;
+  font-weight: 700;
+
+}
+
+.button.alert {
+  background-color: $lt_purp;
+  border-color: darken( $lt_purp, 30% );
+  color: $black;
+  font-weight: 700;
+}
+.button.alert:hover {
+  background-color: darken($lt_purp, 10%);
+  border-color: $lt_purp;
+  color: $black;
+  font-weight: 700;
+}
+
+.button.orange {
+  background-color: $orange;
+  border-color: darken( $orange, 30% );
+  color: $white;
+  font-weight: 700;
+}
+.button.orange:hover {
+  background-color: darken($orange, 10%);
+  border-color: $orange;
+  color: $white;
+  font-weight: 700;
+}
+
+
+
 
 
 textarea {

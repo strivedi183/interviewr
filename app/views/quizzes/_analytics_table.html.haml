@@ -1,3 +1,5 @@
+%script
+  var quizhistory = [];
 %h3 Quiz History
 %table
   %tr
@@ -13,3 +15,20 @@
       %td= user.latest_score(@quiz)
       %td= user.average_score(@quiz)
       %td= user.num_times_taken(@quiz)
+      %script
+        = "var #{user.name.delete(" ")} = {};"
+        = "#{user.name.delete(" ")}['y'] = '#{user.name}';"
+        = "#{user.name.delete(" ")}['a'] = #{user.latest_score(@quiz).round(2)};"
+        = "#{user.name.delete(" ")}['b'] = #{user.average_score(@quiz).round(2)};"
+        = "console.log(#{user.name.delete(" ")});"
+        = "quizhistory.push(#{user.name.delete(" ")});"
+
+#bar-quiz-history-chart
+  :javascript
+    Morris.Bar({
+      element: 'bar-quiz-history-chart',
+      data: quizhistory,
+      xkey: 'y',
+      ykeys: ['a', 'b'],
+      labels: ['Latest Score', 'Average Score']
+    });
