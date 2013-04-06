@@ -21,7 +21,9 @@
           <% else %>
            <li><%= link_to('Profile', user_path(@auth)) %> </li>
            <li class="divider"></li>
-           <li> <%= link_to(number_to_currency(@auth.balance), edit_user_path(@auth))  %> </li>
+            <%= render(:partial => 'layouts/balance') %>
+           <li class="divider"></li>
+           <li> <%= link_to('Our Quizzes', quizzes_path)  %> </li>
           <% end %>
       </ul>
 
