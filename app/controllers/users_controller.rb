@@ -4,8 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(params[:user])
-    redirect_to root_path
+    @user = User.new(params[:user])
+    if @user.save
+      gflash :success => { :title => "Successful Registration", :value => "Congrats " + @user.name.split(" ")[0] + "," + " your account has been created!", :time => 3000, :sticky => false },
+             :notice => { :title => "Welcome " + @user.name.split(" ")[0] + "!", :value => "You'll receive a notification momentarily", :time => 7000, :sticky => false }
+      @user.sendtxt
+      @user.sendemail
+      redirect_to root_path
+    else
+      gflash :warning => { :title => "Registration Error", :value => "Please include your name, e-mail and phone", :time => 5000, :sticky => false }
+      render :new
+    end
   end
 
   def show
