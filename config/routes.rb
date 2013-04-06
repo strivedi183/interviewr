@@ -5,12 +5,15 @@ Interviewr::Application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  resources :users, :only => [:show, :new, :create]
+  resources :users
   resources :results, :only => [:new, :create, :index]
   resources :quizzes, :only => [:show, :new, :create, :index] do
     member do
       get '/analytics' => 'quizzes#analytics'
       post 'purchase'
+    end
+    collection do
+      get 'search'
     end
   end
   resources :questions, :only => [:new, :create]
