@@ -75,8 +75,26 @@ $black:   #4b3b3b; //text color
 .upcase {
   text-transform: uppercase;
 }
+.quiz_bg{
+  background-color: $white;
+  box-shadow: 2px 2px 10px #666;
+  min-height: 600px;
+  width: 100%;
+  padding-top: 20px;
+}
 
+.no_margin{
+  margin: 0px;
+}
 
+.tiny_text{
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+.answers{
+  margin-bottom: 4px;
+}
 /* 6. Foundation Overrides  *********************************/
 
 .button {

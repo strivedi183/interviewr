@@ -1,2 +1,4 @@
-= @current_answer.name
-= @current_answer.is_correct
+.row
+  .large-12.columns
+    .center
+      .answers= @current_answer.name + " (" + @current_answer.is_correct.to_s + ")"
