@@ -5,8 +5,8 @@ Result.delete_all
 Tag.delete_all
 User.delete_all
 
-u1 = User.create(:name => 'Sergey Brin', :email => 's@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816' )
-u2 = User.create(:name => 'God', :email => ENV['EMAIL'], :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => ENV['PHONE'], :image => 'http://4.bp.blogspot.com/_VEFwWvYzl1c/TK6c6fk-PTI/AAAAAAAAA8c/V4veB57_XC4/s1600/Kratos_God_of_War_III.jpg', :is_house => true )
+u1 = User.create(:name => 'Sergey Brin', :email => 's@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816', :balance => 500 )
+u2 = User.create(:name => 'God', :email => ENV['EMAIL'], :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => ENV['PHONE'], :image => 'http://4.bp.blogspot.com/_VEFwWvYzl1c/TK6c6fk-PTI/AAAAAAAAA8c/V4veB57_XC4/s1600/Kratos_God_of_War_III.jpg', :is_house => true, :balance => 1000 )
 
 
 # This block is to set up a sample quiz

@@ -13,4 +13,11 @@ class UsersController < ApplicationController
     @results = Result.where(:user_id => @user.id)
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+  end
+
 end
