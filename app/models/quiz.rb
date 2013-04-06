@@ -39,7 +39,7 @@ class Quiz < ActiveRecord::Base
   end
 
   def all_users
-    self.results.map(&:user_id).map{|i| User.find(i)}
+    self.results.map(&:user_id).map{|i| User.find(i)}.uniq
   end
 
   def purchase(buyer)

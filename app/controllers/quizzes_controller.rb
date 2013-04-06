@@ -29,7 +29,6 @@ class QuizzesController < ApplicationController
   def purchase
     quiz = Quiz.find(params[:id])
 
-
     begin
       if @auth.customer_id.nil?
         customer = Stripe::Customer.create(email: @auth.email, card: params[:token])
@@ -46,7 +45,15 @@ class QuizzesController < ApplicationController
       quiz.purchase(@auth)
     end
 
-
     @quizzes = Quiz.all
+  end
+
+  def search
+    query = params[:query]
+    @quizzes = Quiz.where("name @@ :q", :q => query)
+    if query==''
+      @quizzes = Quiz.all
+    end
+    render :filter
   end
 end
