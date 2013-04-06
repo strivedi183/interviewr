@@ -77,6 +77,66 @@ $black:   #4b3b3b; //text color
 }
 
 
+/* 6. Foundation Overrides  *********************************/
+
+.button {
+  background-color: $lt_purp;
+  border-color: darken( $lt_purp, 30% );
+  color: $black;
+  font-weight: 700;
+}
+.button:hover {
+  background-color: darken($lt_purp, 10%);
+  border-color: $lt_purp;
+  color: $black;
+  font-weight: 700;
+}
+
+.button.success {
+  background-color: $blue;
+  border-color: darken( $blue, 30% );
+  color: #fff;
+  font-weight: 700;
+
+}
+.button.success:hover {
+  background-color: darken($blue, 10%);
+  border-color: $blue;
+  color: #fff;
+  font-weight: 700;
+
+}
+
+.button.alert {
+  background-color: $lt_purp;
+  border-color: darken( $lt_purp, 30% );
+  color: $black;
+  font-weight: 700;
+}
+.button.alert:hover {
+  background-color: darken($lt_purp, 10%);
+  border-color: $lt_purp;
+  color: $black;
+  font-weight: 700;
+}
+
+.button.orange {
+  background-color: $orange;
+  border-color: darken( $orange, 30% );
+  color: $white;
+  font-weight: 700;
+}
+.button.orange:hover {
+  background-color: darken($orange, 10%);
+  border-color: $orange;
+  color: $white;
+  font-weight: 700;
+}
+
+
+
+
+
 textarea {
   width: 305px;
 }
