@@ -18,5 +18,4 @@ Interviewr::Application.routes.draw do
   end
   resources :questions, :only => [:new, :create]
   resources :answers, :only => [:new, :create]
-
 end
