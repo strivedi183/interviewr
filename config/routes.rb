@@ -12,6 +12,9 @@ Interviewr::Application.routes.draw do
       get '/analytics' => 'quizzes#analytics'
       post 'purchase'
     end
+    collection do
+      get 'search'
+    end
   end
   resources :questions, :only => [:new, :create]
   resources :answers, :only => [:new, :create]
