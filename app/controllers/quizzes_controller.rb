@@ -19,6 +19,7 @@ class QuizzesController < ApplicationController
   def create
     @quiz = Quiz.create(params[:quiz])
     @quiz.tags = Tag.is_exists(params[:tags].split(','))
+    @question = Question.new
   end
 
   def analytics
@@ -27,7 +28,6 @@ class QuizzesController < ApplicationController
 
   def purchase
     quiz = Quiz.find(params[:id])
-
 
     begin
       if @auth.customer_id.nil?
@@ -39,13 +39,21 @@ class QuizzesController < ApplicationController
     rescue Stripe::CardError => @error
     end
 
-
-    # if @error.nil?
-    #   Notifications.purchased_product(@auth, product).deliver
-    # end
-
-    result = Result.create(:user_id => @auth.id, :quiz_id => quiz.id)
+    if @error.nil?
+      #Notifications.purchased_product(@auth, product).deliver
+      result = Result.create(:user_id => @auth.id, :quiz_id => quiz.id)
+      quiz.purchase(@auth)
+    end
 
     @quizzes = Quiz.all
+  end
+
+  def search
+    query = params[:query]
+    @quizzes = Quiz.where("name @@ :q", :q => query)
+    if query==''
+      @quizzes = Quiz.all
+    end
+    render :filter
   end
 end

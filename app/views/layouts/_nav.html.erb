@@ -15,11 +15,14 @@
         <li class="divider"></li>
         <li><%= link_to('Create a Quiz', new_quiz_path) %></li>
         <li class="divider"></li>
-        <li>
           <% if @auth.blank? %>
-            <%= link_to('Register', new_user_path) %>
+           <li> <%= link_to('Register', new_user_path) %> </li>
           <% else %>
-            <%= link_to('Profile', user_path(@auth)) %>
+           <li><%= link_to('Profile', user_path(@auth)) %> </li>
+           <li class="divider"></li>
+            <%= render(:partial => 'layouts/balance') %>
+           <li class="divider"></li>
+           <li> <%= link_to('Our Quizzes', quizzes_path)  %> </li>
           <% end %>
         </li>
         <li class="divider"></li>

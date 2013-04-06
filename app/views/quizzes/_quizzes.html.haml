@@ -17,8 +17,20 @@
       %td= quiz.num_fails
       %td= quiz.user.name
       %td
-        - if !quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).present?
-          = render(:partial => 'quizzes/anonymous', :locals => {:quiz => quiz})
+        - if quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).blank?
+          - if @auth.customer_id.present?
+            = render(:partial => 'quizzes/customer', :locals => {:quiz => quiz})
+          - else
+            = render(:partial => 'quizzes/anonymous', :locals => {:quiz => quiz})
       %td
         - if quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).present?
-          = link_to('Go!', quiz_path(quiz))
+          = link_to('Take Quiz', '#', :'data-reveal-id'=>"myModal#{quiz.id}")
+          .reveal-modal{:id=>"myModal#{quiz.id}"}
+            %h2= quiz.name
+            %p.lead= "You are about to start " + quiz.name + "."
+            %p Once you begin, you will not be able to go back. If you go back, your result will be recorded and you will only be able to retake the quiz by repurchasing.
+            = link_to('Start Quiz', quiz_path(quiz), :class=>'button radius medium success')
+            %a.close-reveal-modal &#215;
+
+
+/

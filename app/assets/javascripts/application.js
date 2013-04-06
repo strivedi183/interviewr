@@ -10,3 +10,6 @@
 //= require 'gritter.js'
 //= require 'interviewr.js'
 //= require 'map.js'
+//= require 'spin.min.js'
+//= require 'gritter'
+
