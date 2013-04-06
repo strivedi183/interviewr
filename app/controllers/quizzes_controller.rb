@@ -22,8 +22,6 @@ class QuizzesController < ApplicationController
     @question = Question.new
   end
 
-
-
   def analytics
     @quiz = Quiz.find(params[:id])
   end
@@ -42,12 +40,12 @@ class QuizzesController < ApplicationController
     rescue Stripe::CardError => @error
     end
 
+    if @error.nil?
+      #Notifications.purchased_product(@auth, product).deliver
+      result = Result.create(:user_id => @auth.id, :quiz_id => quiz.id)
+      quiz.purchase(@auth)
+    end
 
-    # if @error.nil?
-    #   Notifications.purchased_product(@auth, product).deliver
-    # end
-
-    result = Result.create(:user_id => @auth.id, :quiz_id => quiz.id)
 
     @quizzes = Quiz.all
   end
