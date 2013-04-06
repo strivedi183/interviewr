@@ -1,27 +1,5 @@
 = js extend_gritter(:position => :bottom_right, :fade_in_speed => "medium", :fade_out_speed => "slow")
 = gflash
 
-.row
-  .large-6.large-centered.columns
-    %h2 Register to Interviewr
-
-.row
-  .large-6.large-centered.columns
-    = form_for @user, :html => {:multipart => true} do |f|
-      = f.text_field :name, :placeholder => 'Full Name'
-      = f.text_field :email, :placeholder => 'Email'
-      = f.text_field :phone, :placeholder => 'Phone Number'
-      = f.password_field :password, :placeholder => 'Password'
-      = f.password_field :password_confirmation, :placeholder => 'Password confirmation'
-      = f.text_field :address, :placeholder => 'Home address'
-      = f.text_field :occupation, :placeholder => 'Current occupation'
-      = f.text_field :balance, :placeholder => 'Opening balance $'
-      = f.label :image, 'Upload photo'
-      = f.file_field :image, :placeholder => 'Upload a photo'
-      %br
-      %br
-      %br
-      = f.submit 'Register', :class => 'button small radius success'
-      = link_to('Cancel', root_path, :class => 'button small radius alert' )
 = render(:partial => 'form')
 

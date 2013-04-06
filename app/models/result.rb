@@ -35,14 +35,14 @@ class Result < ActiveRecord::Base
   end
 
   def score
-    ((self.num_correct.to_f / self.quiz.questions.count.to_f).to_f * 100).round(2)
+    ((self.num_correct.to_f / self.quiz.questions.count.to_f).to_f * 100).round(0)
   end
 
   def sendtxt
     if self.is_passed?
-      body = 'Congrats, ' + self.user.name + ' you passed: ' + self.quiz.name + '! ' + self.score.to_f.to_s + '%'
+      body = 'Congrats, ' + self.user.name + ' you passed: ' + self.quiz.name + '! ' + self.score.to_s + '%'
     else
-      body = 'Sorry, ' + self.user.name + ' you failed: ' + self.quiz.name + '... ' + self.score.to_f.to_s + '%'
+      body = 'Sorry, ' + self.user.name + ' you failed: ' + self.quiz.name + '... ' + self.score.to_s + '%'
     end
     client = Twilio::REST::Client.new(ENV['TW_SID'], ENV['TW_TOK'])
     client.account.sms.messages.create(:from => ENV['TW_PHONE'], :to => self.user.phone, :body => body)
@@ -51,11 +51,11 @@ class Result < ActiveRecord::Base
   def sendemail
     if self.is_passed?
       quiz = self.quiz.name
-      score = self.score.to_f.to_s
+      score = self.score.to_s
       Notifications.passing_message(user, quiz, score).deliver
     else
       quiz = self.quiz.name
-      score = self.score.to_f.to_s
+      score = self.score.to_s
       Notifications.failing_message(user, quiz, score).deliver
     end
   end
