@@ -1,2 +1,7 @@
-#quizzes
-  = render(:partial => 'quizzes')
+.row
+  .large-6.columns
+    = text_field_tag :search, nil, :autofocus=>true, :placeholder=>'Search Quizzes'
+.row
+  .large-12.columns
+    #quizzes
+      = render(:partial => 'quizzes')
