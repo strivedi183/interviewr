@@ -13,26 +13,34 @@
       <!-- Left Nav Section -->
       <ul class="left">
         <li class="divider"></li>
+        <% if @auth.blank? %>
+        <li><%= link_to('Login', '#', :'data-reveal-id'=>'loginModal') %></li>
+        <li> <%= link_to('Register', new_user_path) %> </li>
+        <% else %>
         <li class="divider"></li>
         <li><%= link_to('Create a Quiz', new_quiz_path) %></li>
+        <li><%= link_to('Profile', user_path(@auth)) %> </li>
         <li class="divider"></li>
-          <% if @auth.blank? %>
-           <li> <%= link_to('Register', new_user_path) %> </li>
-          <% else %>
-           <li><%= link_to('Profile', user_path(@auth)) %> </li>
-           <li class="divider"></li>
-           <li> <%= link_to(number_to_currency(@auth.balance), edit_user_path(@auth))  %> </li>
-          <% end %>
+        <%= render(:partial => 'layouts/balance') %>
+        <li class="divider"></li>
+        <li> <%= link_to('Our Quizzes', quizzes_path)  %> </li>
+        <li class="divider"></li>
+        <li> <%= link_to('Logout', login_path, :method => :delete) %> </li>
+        <% end %>
       </ul>
 
       <!-- Right Nav Section -->
       <ul class="right">
-        <li class="divider session_holder"></li>
-        <% if @auth.blank? %>
-          <%= render(:partial => 'session/new')  %>
-        <% else %>
-          <%= link_to('Logout', login_path, :method => :delete, :class => 'button alert') %>
-        <% end %>
+
       </ul>
     </section>
+
+    <!-- Login modal -->
+    <div id="loginModal" class="reveal-modal small">
+      <h2>Erotiquiz login</h2>
+      <%= render(:partial => 'session/new')  %>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+
   </nav>

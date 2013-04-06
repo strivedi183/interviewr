@@ -1,6 +1,7 @@
-%h2= @quiz.name
-%h2= @quiz.cost
-%h2= @quiz.id
-%h2= number_to_percentage(@quiz.num_pass, :precision => 2)
+%h3= @quiz.name
+%h4= "Cost: " + number_to_currency(@quiz.cost)
+/ %h4= @quiz.id
+%h5= "Answer " + number_to_percentage(@quiz.num_pass, :precision => 2) + " correctly to pass."
+%p.no_margin.tiny_text QUIZ TAGS
 - @quiz.tags.each do |tag|
-  %p= tag.name
+  .label.success.round= tag.name

@@ -9,6 +9,7 @@ en:
       warning: "Warning"
       error: "Error"
       progress: "Progress"
+
     #
     # Add gflash messages for controller actions:
     # products:
@@ -16,6 +17,6 @@ en:
     #     notice: "This is a notification"
     #     error: "Something went wrong"
     #
-    # Inside controller: 
+    # Inside controller:
     # gflash :notice, :error
     #
