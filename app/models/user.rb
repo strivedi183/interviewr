@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :results, :inverse_of => :user
   has_many :quizzes, :inverse_of => :user
   validates :email, :presence => true, :uniqueness => true
+  validates :name, :phone, :presence => true
   mount_uploader :image, ImageUploader
 
   before_save :geocode
@@ -47,6 +48,22 @@ class User < ActiveRecord::Base
 
   def quizzes_taken
     self.results.map(&:quiz_id).map{|i| Quiz.find(i)}
+  end
+
+  def sendtxt
+    if self != nil
+      body = 'Congrats, ' + self.name + ' your registration is complete!'
+      client = Twilio::REST::Client.new(ENV['TW_SID'], ENV['TW_TOK'])
+      client.account.sms.messages.create(:from => ENV['TW_PHONE'], :to => self.phone, :body => body)
+    end
+  end
+
+  def sendemail
+    if self != nil
+      self.name = name
+      self.email = email
+      Notifications.registration_message(name, email).deliver
+    end
   end
 
   private
