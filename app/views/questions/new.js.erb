@@ -1,1 +1,2 @@
-$('#question_form').append('<%=j render(:partial => 'questions/form')%>');
+$('#question_form').empty().append('<%=j render 'questions/form' %>');
+$('#q_header').show()

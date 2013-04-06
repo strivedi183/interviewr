@@ -17,8 +17,11 @@
       %td= quiz.num_fails
       %td= quiz.user.name
       %td
-        - if !quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).present?
-          = render(:partial => 'quizzes/anonymous', :locals => {:quiz => quiz})
+        - if quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).blank?
+          - if @auth.customer_id.present?
+            = render(:partial => 'quizzes/customer', :locals => {:quiz => quiz})
+          - else
+            = render(:partial => 'quizzes/anonymous', :locals => {:quiz => quiz})
       %td
         - if quiz.results.where(user_id: @auth.id, num_correct: nil, has_started: false).present?
           = link_to('Go!', quiz_path(quiz))
