@@ -7,7 +7,7 @@ class SessionController < ApplicationController
     @auth = User.where(:email => params[:email]).first
     if @auth.present? && @auth.authenticate(params[:password])
       session[:user_id] = @auth.id
-      gflash :success => { :title => "Successful Login", :value => "Welcome back, #{@auth.name}!  You are now logged in.", :image => "#{@auth.image}", :time => 2500, :sticky => false }
+      gflash :success => { :title => "Successful Login", :value => "Welcome back, " + @auth.name.split(" ")[0] + "! You are now logged in.", :image => "#{@auth.image}", :time => 2500, :sticky => false }
     else
       gflash :error => { :title => "Login Error", :value => "Something went wrong; please try again", :time => 2500, :sticky => false }
     end

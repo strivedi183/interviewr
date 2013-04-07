@@ -15,5 +15,7 @@ class ResultsController < ApplicationController
     result.sendtxt
     result.sendemail
     redirect_to(@auth)
+    gflash :success => { :title => "Quiz Complete", :value => "Congrats " + @auth.name.split(" ")[0] + "," + " your answers have been submited!", :time => 3000, :sticky => false },
+           :notice => { :title => "Quiz Results", :value => @auth.name.split(" ")[0] + " you'll receive a score momentarily", :time => 7000, :sticky => false }
   end
 end

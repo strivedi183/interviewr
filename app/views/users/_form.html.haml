@@ -4,8 +4,6 @@
       %h2 Register to Interviewr
     - else
       %h2 Edit your profile
-
-
 .row
   .large-6.large-centered.columns
     = form_for @user, :html => {:multipart => true} do |f|
@@ -16,11 +14,17 @@
       = f.password_field :password_confirmation, :placeholder => 'Password confirmation'
       = f.text_field :address, :placeholder => 'Home address'
       = f.text_field :occupation, :placeholder => 'Current occupation'
-      = f.text_field :balance, :placeholder => 'Opening balance $'
+      = f.text_field :balance, :placeholder => 'Opening balance $', :value => number_to_currency(f.object.balance, :precision => 2)
       = f.label :image, 'Upload photo'
       = f.file_field :image, :placeholder => 'Upload a photo'
       %br
       %br
       %br
-      = f.submit 'Register', :class => 'button small radius success'
-      = link_to('Cancel', root_path, :class => 'button small radius alert' )
+      - if @auth.blank?
+        = f.submit 'Register', :class => 'button small radius success'
+        = link_to('Cancel', root_path, :class => 'button small radius alert' )
+      - else
+        = f.submit 'Update', :class => 'button small radius success'
+        = link_to('Cancel', user_path, :class => 'button small radius alert' )
+
+
