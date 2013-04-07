@@ -1,4 +1,5 @@
 window.app =
+  questions_count: null
   ready: ->
     $('body').on('token', '.stripe-button', app.token_generated)
     $('body').on('click', 'a[data-finish-question-form]', app.clear_questions_answers)

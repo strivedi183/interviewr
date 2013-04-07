@@ -52,4 +52,9 @@ class Quiz < ActiveRecord::Base
     self.save
   end
 
+  def convert_percentage(pass_percent)
+    self.questions.count == 1 if self.questions.count == 0
+      (pass_percent.to_f / 100) / self.questions.count
+  end
+
 end
