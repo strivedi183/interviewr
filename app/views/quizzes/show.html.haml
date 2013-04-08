@@ -1,17 +1,21 @@
-= form_tag '/results' do
-  %ol
-    - @questions.each do |question|
-      %li
-        = question.prompt
-        %ul
-          - question.answers.each do |answer|
-            %li
-              .inline-block
-                =check_box_tag "question[#{question.id}][]", answer.id
-              .inline-block=label_tag answer.name
+.row#quiz_show
+  .large-12.columns
+    %h2= 'Quiz: ' + @quiz.name
+    %h5 Directions: Please answer every question. Questions may have more than one answer.
+    = form_tag '/results' do
+      %ol
+        - @questions.each do |question|
+          %li.question
+            = question.prompt
+            %ul
+              - question.answers.each do |answer|
+                %li
+                  .inline-block
+                    =check_box_tag "question[#{question.id}][]", answer.id
+                  .inline-block=label_tag answer.name
 
-  =hidden_field_tag :quiz_id, @questions.first.quiz.id
-  =submit_tag nil, :class => 'button'
+      =hidden_field_tag :quiz_id, @questions.first.quiz.id
+      =submit_tag nil, :class => 'button'
 
 
 / = form_tag '/quizzes/sendtxt' do
