@@ -1,0 +1,15 @@
+%h3 QUIZZES CREATED
+
+%table
+  %thead
+    %tr
+      %th Quiz name
+      %th Passing Score
+      %th Cost
+  %tbody
+  - @quizzes.each do |quiz|
+    %tr
+      %td= link_to(quiz.name, quizzes_path)
+      %td= number_to_percentage(quiz.passing_score, :precision => 0)
+      %td= number_to_currency(quiz.cost, :precision => 2)
+
