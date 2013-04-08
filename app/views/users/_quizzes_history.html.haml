@@ -8,6 +8,7 @@
       %th Score
       %th Number Correct
       %th Number Wrong
+      %th Retake Quiz
   %tbody
   - @results.each do |result|
     %tr
@@ -16,3 +17,5 @@
       %td= number_to_percentage(result.score, :precision => 0)
       %td= result.num_correct
       %td= result.num_incorrect
+      %td= link_to('Try Again', quizzes_path, :class => 'button round tiny secondary')
+      / %td= link_to('Try Again', "../quizzes/#{result.quiz_id}/purchase", :class => 'button round tiny secondary') <-- num_correct is an issue here
