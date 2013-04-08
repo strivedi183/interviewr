@@ -3,5 +3,4 @@ $('#question_info').append('<%=j render :partial => 'question_info' %>');
 $('#answer_form').empty().append('<%=j render :partial => 'answers/form' %>');
 $('#finish_question').show();
 $('.questions_count').empty().append().text('<%= @quiz.questions.count.to_s %>');
-$('#quiz_id').append().text('<%= @quiz.id %>');
-app.questions_count += 1;
+$('#quiz_final_id').val('<%= @quiz.id %>');

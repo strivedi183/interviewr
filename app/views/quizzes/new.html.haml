@@ -1,5 +1,3 @@
-#quiz_id.hide= @quiz.id
-
 .row
   .large-4.columns
     .tiny_spacer.black_bg
@@ -34,10 +32,11 @@
     This quiz has
     %span.questions_count= @quiz.questions.count.to_s
     questions.
-  %h4
-    What is the passing percentage?
-    = form_tag '/quizzes/' do
-      = number_field_tag :pass_percent
+  %h5
+    How many questions correct to pass?
+    = form_tag finalize_quizzes_path do
+      = hidden_field_tag :quiz_final_id
+      = number_field_tag :num_pass
       = submit_tag 'Done creating quiz'
 
   %a.close-reveal-modal

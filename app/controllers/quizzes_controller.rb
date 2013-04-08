@@ -59,10 +59,11 @@ class QuizzesController < ApplicationController
     render :filter
   end
 
-  def update
-    binding.pry
-    quiz = Quiz.find(params[:id])
-    pass_percent = params[:pass_percent]
-    quiz.convert_percentage(pass_percent)
+  def finalize
+    quiz = Quiz.find(params[:quiz_final_id])
+    num_pass = params[:num_pass].to_f
+    quiz.num_pass = num_pass
+    quiz.save
+    redirect_to quizzes_path
   end
 end

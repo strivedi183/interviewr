@@ -14,6 +14,7 @@ Interviewr::Application.routes.draw do
     end
     collection do
       get 'search'
+      post 'finalize'
     end
   end
   resources :questions, :only => [:new, :create]
