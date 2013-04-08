@@ -18,4 +18,5 @@
       %td= result.num_correct
       %td= result.num_incorrect
       %td= link_to('Try Again', quizzes_path, :class => 'button round tiny secondary')
-      / %td= link_to('Try Again', "../quizzes/#{result.quiz_id}/purchase", :class => 'button round tiny secondary') <-- num_correct is an issue here
+      / %td= link_to('Try Again', "../quizzes/#{result.quiz_id}/purchase", :method => :post, :class => 'button round tiny secondary')
+      / <-- num_correct is an issue here

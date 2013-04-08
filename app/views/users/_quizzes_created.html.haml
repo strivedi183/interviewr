@@ -10,6 +10,6 @@
   - @quizzes.each do |quiz|
     %tr
       %td= link_to(quiz.name, quizzes_path)
-      %td= number_to_percentage(quiz.passing_score, :precision => 0)
+      %td= number_to_percentage((quiz.passing_score / 100), :precision => 0)
       %td= number_to_currency(quiz.cost, :precision => 2)
 

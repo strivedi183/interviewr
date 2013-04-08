@@ -176,3 +176,14 @@ ul
 {
   list-style: none;
 }
+
+
+/* 5. GRITTER Position  ***************************************/
+
+#gritter-notice-wrapper {
+  position:fixed;
+  top:75px;
+  right:20px;
+  width:301px;
+  z-index:9999;
+}
