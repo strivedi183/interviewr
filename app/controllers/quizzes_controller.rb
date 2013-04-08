@@ -58,4 +58,12 @@ class QuizzesController < ApplicationController
     end
     render :filter
   end
+
+  def finalize
+    quiz = Quiz.find(params[:quiz_final_id])
+    num_pass = params[:num_pass].to_f
+    quiz.num_pass = num_pass
+    quiz.save
+    redirect_to quizzes_path
+  end
 end

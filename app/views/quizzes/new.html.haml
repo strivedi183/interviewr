@@ -3,7 +3,7 @@
     .tiny_spacer.black_bg
     #quizform
       %h3 CREATE A QUIZ:
-      = render :partial => 'quizzes/quiz_form'
+      = render :partial => 'quiz_form'
     .tiny_spacer
 
     .tiny_spacer.black_bg
@@ -13,14 +13,31 @@
       = form_tag new_question_path, :method => 'get', :remote => true do
         = hidden_field_tag :quiz_id, @quiz.id
         = submit_tag 'NEW QUESTION', :class => "small button success"
-      / link_to('NEW QUESTION', questions_new_quiz_path, :remote => true, :class => "small button success" )
+        = link_to('Finish Creating Quiz', '#', :'data-reveal-id' => 'quizEndModal', :class => 'button tiny alert')
+
 
     #question_form
     #answer_form
 
     #finish_question
       = link_to('Finish Question', '#', :'data-finish-question-form' => true, :class => 'button tiny success')
-      = link_to('Finish Creating Quiz', user_path(@auth), :class => 'button tiny alert')
+      = link_to('Finish Creating Quiz', '#', :'data-reveal-id' => 'quizEndModal', :class => 'button tiny alert')
+
   .large-8.columns
     .quiz_bg
       #question_info
+
+#quizEndModal.reveal-modal.small
+  %h4
+    This quiz has
+    %span.questions_count= @quiz.questions.count.to_s
+    questions.
+  %h5
+    How many questions correct to pass?
+    = form_tag finalize_quizzes_path do
+      = hidden_field_tag :quiz_final_id
+      = number_field_tag :num_pass
+      = submit_tag 'Done creating quiz'
+
+  %a.close-reveal-modal
+    &#215;
