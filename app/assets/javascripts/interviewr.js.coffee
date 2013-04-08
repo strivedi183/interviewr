@@ -5,6 +5,20 @@ window.app =
     $('body').on('keyup', '#search', app.filter_products)
     $('#q_header').hide()
     $('#finish_question').hide()
+    $('#finish_quiz.btn').on('click', app.end_timer)
+
+
+  start_timer: ->
+    app.start = new Date
+    app.timer = setInterval(app.update_timer, 1000)
+
+  end_timer: ->
+    console.log(app.time)
+    clearInterval(app.timer)
+
+  update_timer: ->
+    app.time = $('#time').text((new Date - app.start) / 1000 + " Seconds")
+    # $('#time').text(time)
 
   filter_products: (e) ->
     query = $('#search').val()
