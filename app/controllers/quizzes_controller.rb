@@ -52,10 +52,14 @@ class QuizzesController < ApplicationController
 
   def search
     query = params[:query]
-    @quizzes = Quiz.where("name @@ :q", :q => query)
     if query==''
       @quizzes = Quiz.all
     end
+    @quizzes = Quiz.where("name @@ :q", :q => query)
+    tags = Tag.where('name @@ :q', :q=>query)
+    tags = tags.map{ |x| x.quizzes}.flatten
+    @quizzes += tags
+    @quizzes.uniq!
     render :filter
   end
 
