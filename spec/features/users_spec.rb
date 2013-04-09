@@ -27,6 +27,7 @@ describe 'Users' do
       click_link('Register')
       fill_in('user_name', :with => 'bob')
       fill_in('user_email', :with => 'bob@gmail.com')
+      fill_in('user_phone', :with => '2123456789')
       fill_in('user_password', :with => 'a')
       fill_in('user_password_confirmation', :with => 'a')
       click_button('Register')

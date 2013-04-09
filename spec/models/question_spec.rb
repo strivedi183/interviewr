@@ -44,7 +44,7 @@ describe Question do
       correct = FactoryGirl.create(:answer_is_correct)
       incorrect = FactoryGirl.create(:answer_is_not_correct)
       q.answers = [correct, incorrect]
-      expect(q.correct_answers.first).to eq correct
+      expect(q.correct_answers.first.to_i).to be 1
     end
   end
 

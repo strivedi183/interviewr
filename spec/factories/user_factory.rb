@@ -23,6 +23,7 @@ FactoryGirl.define do
   factory :user, class: User do
     name                  'bob'
     email                 'bob@gmail.com'
+    phone                 '2123456789'
     address               'New York'
     password              'a'
     password_confirmation 'a'
