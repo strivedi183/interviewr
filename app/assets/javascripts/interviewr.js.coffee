@@ -9,17 +9,21 @@ window.app =
     $('#finish_quiz.btn').on('click', app.end_timer)
 
 
-  start_timer: ->
-    app.start = new Date
-    app.timer = setInterval(app.update_timer, 1000)
+  # start_timer: ->
+  #   app.start = moment()
+  #   app.timer = setInterval(app.update_timer, 1000)
 
-  end_timer: ->
-    console.log(app.time)
-    clearInterval(app.timer)
+  # end_timer: ->
+  #   console.log(app.time)
+  #   clearInterval(app.timer)
 
-  update_timer: ->
-    app.time = $('#time').text((new Date - app.start) / 1000 + " Seconds")
-    # $('#time').text(time)
+  # update_timer: ->
+  #   date = (moment() - app.start)/1000
+  #   show_date = date.format('mm:ss')
+  #   console.log(date)
+  #   console.log(show_date)
+  #   app.time = $('#time').text(show_date+ " Seconds")
+  #   # $('#time').text(time)
 
   filter_products: (e) ->
     query = $('#search').val()
