@@ -1,4 +1,5 @@
 .row
   .large-12.columns
     .center
-      .answers= @current_answer.name + " (" + @current_answer.is_correct.to_s + ")"
+      / .answers= @current_answer.name + " (" + @current_answer.is_correct.to_s + ")"
+      .answers= @current_answer.name + " (" + (@current_answer.is_correct == true ? "CORRECT" : "incorrect") + ")"
