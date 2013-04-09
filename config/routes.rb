@@ -7,13 +7,14 @@ Interviewr::Application.routes.draw do
 
   resources :users
   resources :results, :only => [:new, :create, :index]
-  resources :quizzes, :only => [:show, :new, :create, :index] do
+  resources :quizzes, :only => [:show, :new, :create, :index, :update] do
     member do
       get '/analytics' => 'quizzes#analytics'
       post 'purchase'
     end
     collection do
       get 'search'
+      post 'finalize'
     end
   end
   resources :questions, :only => [:new, :create]

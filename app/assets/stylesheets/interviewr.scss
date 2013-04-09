@@ -178,6 +178,7 @@ ul
 }
 
 
+
 /* 5. GRITTER Position  ***************************************/
 
 #gritter-notice-wrapper {
@@ -187,3 +188,24 @@ ul
   width:301px;
   z-index:9999;
 }
+
+// ******* QUIZ SHOW PAGE **********
+#quiz_show {
+  h5 {
+    margin-left: 25px;
+    font-size: 16px;
+  }
+  ol {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+  li.question {
+    padding: 25px 0;
+    border-bottom: 1px dotted #3ea8d5;
+  }
+}
+
+
+// ******* END QUIZ SHOW PAGE **********
+
