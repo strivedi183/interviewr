@@ -24,11 +24,11 @@
     %ul
       %li
         %h3= @user.name
-      %li= @user.address
-      %li= @user.occupation
-      %li= @user.email
-      %li= @user.phone
-      %li= number_to_currency(@user.balance, :precision => 2)
+      %li= "Address: #{@user.address}"
+      %li= "Occupation: #{@user.occupation}"
+      %li= "E-mail: #{@user.email}"
+      %li= "Phone: #{@user.phone}"
+      %li= "Balance: #{number_to_currency(@user.balance, :precision => 2)}"
   .large-1.columns
 
 
@@ -51,7 +51,7 @@
 .row
   .large-10.large-centered.columns
 
-= js extend_gritter(:position => :bottom_right, :fade_in_speed => "medium", :fade_out_speed => "slow")
+= js extend_gritter(:position => :top_right, :fade_in_speed => "medium", :fade_out_speed => "slow")
 = gflash
 
 
