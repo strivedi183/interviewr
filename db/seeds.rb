@@ -5,11 +5,11 @@ Result.delete_all
 Tag.delete_all
 User.delete_all
 
-u1 = User.create(:name => 'Sergey Brin', :email => 's@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816', :balance => 500 )
-u2 = User.create(:name => 'Larry Page', :email => 'l@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816', :balance => 500 )
-u3 = User.create(:name => 'Eric Schmidt', :email => 'e@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816', :balance => 500 )
-u4 = User.create(:name => 'Mark Zuckerburg', :email => 'm@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816', :balance => 500 )
-h1 = User.create(:name => 'God', :email => ENV['EMAIL'], :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => ENV['PHONE'], :image => 'http://4.bp.blogspot.com/_VEFwWvYzl1c/TK6c6fk-PTI/AAAAAAAAA8c/V4veB57_XC4/s1600/Kratos_God_of_War_III.jpg', :is_house => true, :balance => 1000 )
+u1 = User.create(:name => 'Sergey Brin', :email => 's@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
+u2 = User.create(:name => 'Larry Page', :email => 'l@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
+u3 = User.create(:name => 'Eric Schmidt', :email => 'e@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
+u4 = User.create(:name => 'Mark Zuckerburg', :email => 'm@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
+h1 = User.create(:name => 'God', :email => 'holl0272@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => ENV['PHONE'], :is_house => true, :balance => 1000 )
 
 
 # This block is to set up a sample quiz
