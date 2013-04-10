@@ -12,16 +12,16 @@ u4 = User.create(:name => 'Mark Zuckerburg', :email => 'm@gmail.com', :password 
 h1 = User.create(:name => 'God', :email => ENV['EMAIL'], :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => ENV['PHONE'], :is_house => true, :balance => 1000 )
 
 
-t1  = Tag.create(name: 'rails')
-t2  = Tag.create(name: 'javascript')
-t3  = Tag.create(name: 'front-end')
+t1  = Tag.create(name: 'love')
+t2  = Tag.create(name: 'passion')
+t3  = Tag.create(name: 'techniques')
 t4  = Tag.create(name: 'back-end')
-t5  = Tag.create(name: 'computer science')
-t6  = Tag.create(name: 'beginner')
-t7  = Tag.create(name: 'intermediate')
+t5  = Tag.create(name: 'romance')
+t6  = Tag.create(name: 'beginners')
+t7  = Tag.create(name: 'spicy')
 t8  = Tag.create(name: 'hard')
 t9  = Tag.create(name: 'expert')
-t10 = Tag.create(name: 'ruby')
+t10 = Tag.create(name: 'front-end')
 
 # This block is to set up a sample quiz
 q1 = Quiz.create(:name => 'Intro to Seduction', :num_pass => 2, :cost => 5)
