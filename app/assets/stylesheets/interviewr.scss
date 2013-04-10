@@ -3,9 +3,6 @@
   font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
- font-family: 'Lato', sans-serif;
-}
 
 
 $orange:  #e57113; //accent color, stylist name
@@ -24,7 +21,7 @@ $black:   #4b3b3b; //text color
 
 
 .orange_bg { background-color: $orange; }
-.lt_purp_bg { background-color: $lt_purp; }
+.lt_purp_bg { background-color: lighten($lt_purp, 10%); }
 .white_bg { background-color: $white; }
 .blue_bg   { background-color: $blue; }
 .amber_bg  { background-color: $amber; }
@@ -32,10 +29,20 @@ $black:   #4b3b3b; //text color
 
 
 /* 5. PAGE UTILITIES  ***************************************/
+
+
+h1, h2, h3, h4, h5, li {
+ font-family: 'Lato', sans-serif;
+ color: $black;
+}
+
+
 .spacer {
   height: 60px;
 }
-
+.opacity{
+  opacity:0.8;
+}
 .big_spacer{
   margin-top: 325px;
 }
@@ -141,18 +148,17 @@ body {
 }
 
 .button.success {
-  background-color: $blue;
-  border-color: darken( $blue, 30% );
+  background-color: $amber;
+  border-color: darken( $amber, 30% );
   color: #fff;
   font-weight: 700;
 
 }
 .button.success:hover {
-  background-color: darken($blue, 10%);
-  border-color: $blue;
+  background-color: darken($amber, 10%);
+  border-color: $amber;
   color: #fff;
   font-weight: 700;
-
 }
 
 .button.alert {
@@ -181,8 +187,14 @@ body {
   font-weight: 700;
 }
 
+td {
+  opacity: .8;
+}
 
-
+th {
+  background-color: $lt_purp;
+  text-align: left;
+}
 
 
 textarea {
