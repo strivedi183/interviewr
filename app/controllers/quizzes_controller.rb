@@ -1,4 +1,6 @@
 class QuizzesController < ApplicationController
+  before_filter :check_if_logged_in
+
   def index
     @quizzes = Quiz.all
   end

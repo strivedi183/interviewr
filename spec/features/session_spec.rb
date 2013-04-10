@@ -10,6 +10,13 @@ describe 'Session' do
     end
   end
 
+  describe 'get /quizzes' do
+    it 'does not allow a user to see the quizzes page without authentication' do
+      visit quizzes_path
+      page.should_not have_text('Purchase Quiz')
+  end
+end
+
   describe 'GET /login' do
     it 'displays log in form' do
       visit root_path
