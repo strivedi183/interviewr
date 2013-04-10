@@ -6,5 +6,7 @@
   Number of questions:
   %span.questions_count= @quiz.questions.count.to_s
 %p.no_margin.tiny_text QUIZ TAGS
+.tiny_spacer
 - @quiz.tags.each do |tag|
   .label.success.round= tag.name
+.tiny_spacer

@@ -80,8 +80,16 @@ $black:   #4b3b3b; //text color
   box-shadow: 2px 2px 10px #666;
   min-height: 600px;
   width: 100%;
-  padding-top: 20px;
+  padding: 40px;
 }
+
+.sphoto{
+  width: 250px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
 
 .no_margin{
   margin: 0px;
@@ -94,6 +102,28 @@ $black:   #4b3b3b; //text color
 }
 .answers{
   margin-bottom: 4px;
+}
+
+body {
+  background: url(sheets.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.frontpg {
+  line-height: 2em;
+  font-size: 3.5em;
+  font-weight: bold;
+  letter-spacing: 30px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: -20px;
+}
+.divider{
+  height: 10px;
+  width: 40%;
 }
 /* 6. Foundation Overrides  *********************************/
 
