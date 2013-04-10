@@ -1,23 +1,22 @@
 %h3 QUIZZES TAKEN
-
-%table
-  %thead
-    %tr
-      %th Quiz name
-      %th Date taken
-      %th Score
-      %th Number Correct
-      %th Number Wrong
-      %th Purchase Again
-  %tbody
-  - @results.each do |result|
-    %tr
-      %td= link_to(result.quiz.name, quizzes_path)
-      %td= result.date
-      %td= number_to_percentage(result.score, :precision => 0)
-      %td= result.num_correct
-      %td= result.num_incorrect
-      %td= button_to(result.quiz.name, quiz_path)
-
+-if @results.count != 0
+  %table
+    %thead
+      %tr
+        %th Quiz name
+        %th Date taken
+        %th Score
+        %th Number Correct
+        %th Number Wrong
+    %tbody
+    - @results.each do |result|
+      %tr
+        %td= link_to(result.quiz.name, quizzes_path)
+        %td= result.date
+        %td= number_to_percentage(result.score, :precision => 0)
+        %td= result.num_correct
+        %td= result.num_incorrect
+-else
+  = link_to('Take your first Quiz', quizzes_path, :class => 'button success radius')
 
 

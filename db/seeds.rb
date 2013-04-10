@@ -5,15 +5,27 @@ Result.delete_all
 Tag.delete_all
 User.delete_all
 
-u1 = User.create(:name => 'Sergey Brin', :email => 's@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816', :balance => 500 )
-u2 = User.create(:name => 'Larry Page', :email => 'l@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816', :balance => 500 )
-u3 = User.create(:name => 'Eric Schmidt', :email => 'e@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816', :balance => 500 )
-u4 = User.create(:name => 'Mark Zuckerburg', :email => 'm@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => '917-922-2816', :balance => 500 )
-h1 = User.create(:name => 'God', :email => ENV['EMAIL'], :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => ENV['PHONE'], :image => 'http://4.bp.blogspot.com/_VEFwWvYzl1c/TK6c6fk-PTI/AAAAAAAAA8c/V4veB57_XC4/s1600/Kratos_God_of_War_III.jpg', :is_house => true, :balance => 1000 )
+u1 = User.create(:name => 'Sergey Brin', :email => 's@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
+u2 = User.create(:name => 'Larry Page', :email => 'l@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
+u3 = User.create(:name => 'Eric Schmidt', :email => 'e@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
+u4 = User.create(:name => 'Mark Zuckerburg', :email => 'm@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
+h1 = User.create(:name => 'God', :email => ENV['EMAIL'], :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => ENV['PHONE'], :is_house => true, :balance => 1000 )
 
+
+t1  = Tag.create(name: 'love')
+t2  = Tag.create(name: 'passion')
+t3  = Tag.create(name: 'techniques')
+t4  = Tag.create(name: 'back-end')
+t5  = Tag.create(name: 'romance')
+t6  = Tag.create(name: 'beginners')
+t7  = Tag.create(name: 'spicy')
+t8  = Tag.create(name: 'hard')
+t9  = Tag.create(name: 'expert')
+t10 = Tag.create(name: 'front-end')
 
 # This block is to set up a sample quiz
 q1 = Quiz.create(:name => 'Intro to Seduction', :num_pass => 2, :cost => 5)
+q1.tags = [t1, t2, t3, t4, t5, t10, t7]
 h1.quizzes << q1
 question1 = Question.create(:prompt => 'What is the fastest way to the heart of your beloved?')
 a1 = Answer.create(:name => 'Soft whispering', :is_correct => true)
@@ -38,6 +50,7 @@ q1.questions << question1 << question2 << question3
 
 # This block is to set up a sample quiz
 q2 = Quiz.create(:name => 'Rails Intermediate', :num_pass => 2, :cost => 10)
+q2.tags = [t1, t8, t10 ]
 h1.quizzes << q2
 question4 = Question.create(:prompt => 'This is Question 1')
 a13 = Answer.create(:name => 'Choice 1', :is_correct => true)
@@ -62,6 +75,7 @@ q2.questions << question4 << question5 << question6
 
 # This block is to set up a sample quiz
 q3 = Quiz.create(:name => 'Between the Sheets', :num_pass => 2, :cost => 100)
+q3.tags = [t2, t3, t4, t5, t6]
 h1.quizzes << q3
 question4 = Question.create(:prompt => 'This is Question 1')
 a25 = Answer.create(:name => 'Choice 1', :is_correct => true)
