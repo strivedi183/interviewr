@@ -24,7 +24,7 @@ t9  = Tag.create(name: 'expert')
 t10 = Tag.create(name: 'front-end')
 
 # This block is to set up a sample quiz
-q1 = Quiz.create(:name => 'Intro to Seduction', :num_pass => 2, :cost => 5)
+q1 = Quiz.create(:name => 'Intro to Seduction/Chyld, Please', :num_pass => 2, :cost => 5)
 q1.tags = [t1, t2, t3, t4, t5, t10, t7]
 h1.quizzes << q1
 question1 = Question.create(:prompt => 'What is the fastest way to the heart of your beloved?')

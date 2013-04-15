@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
   def new
     @user = User.new
   end
@@ -33,9 +32,4 @@ class UsersController < ApplicationController
     user.update_attributes(params[:user])
     redirect_to (user_path)
   end
-
-=======
-  def show
-  end
->>>>>>> c324db7b8f05fc8719fc54ef884c8cff37659667
 end
