@@ -11,7 +11,7 @@
     - @quizzes.each do |quiz|
       %tr
         %td= link_to(quiz.name, quizzes_path)
-        %td= number_to_percentage((quiz.passing_score / 100), :precision => 0)
+        %td= number_to_percentage(quiz.passing_score, :precision => 2)
         %td= number_to_currency(quiz.cost, :precision => 2)
 -else
   = link_to('Create your first Quiz', new_quiz_path,  :class => 'button success radius float_left')

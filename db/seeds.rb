@@ -9,7 +9,7 @@ u1 = User.create(:name => 'Sergey Brin', :email => 's@gmail.com', :password => '
 u2 = User.create(:name => 'Larry Page', :email => 'l@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
 u3 = User.create(:name => 'Eric Schmidt', :email => 'e@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
 u4 = User.create(:name => 'Mark Zuckerburg', :email => 'm@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Manhattan, NYC', :phone => ENV['PHONE'], :balance => 500 )
-h1 = User.create(:name => 'God', :email => ENV['EMAIL'], :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => ENV['PHONE'], :is_house => true, :balance => 1000 )
+h1 = User.create(:name => 'God', :email => 'holl0272@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Brooklyn, NY', :phone => ENV['PHONE'], :is_house => true, :balance => 1000 )
 
 
 t1  = Tag.create(name: 'love')
