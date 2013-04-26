@@ -1,5 +1,9 @@
+%script
+  app.start_timer();
+
 .row#quiz_show
   .large-12.columns
+    #time
     %h2= 'Quiz: ' + @quiz.name
     %h5 Directions: Please answer every question. Questions may have more than one answer.
     = form_tag '/results' do
@@ -15,7 +19,7 @@
                   .inline-block=label_tag answer.name
 
       =hidden_field_tag :quiz_id, @questions.first.quiz.id
-      =submit_tag nil, :class => 'button'
+      =submit_tag nil, :class => 'button', :id => 'finish_quiz_btn'
 
 
 / = form_tag '/quizzes/sendtxt' do
